@@ -15,7 +15,9 @@ class Experience_Professionnelle extends Model
         'Mission',
         'Duree',
         'cv_id',
-
-
     ];
+    public function cv()
+    {
+        return $this->belongsTo('App\Models\Curriculum_Vitae','cv_id','id');
+    }
 }

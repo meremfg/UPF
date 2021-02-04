@@ -21,8 +21,17 @@
       <ul>
 
         <li><i class="fas fa-home icon"></i> Recherche</li>
-     <li><i class="fas fa-underline icon"><a href="{{ route('admin.students') }}"></i>Gérer les étudiants</a></li>
-        <li><i class="fas fa-boxes icon"><a href="{{ route('admin.recruteurs') }}"></i>Gérer les recruteurs</a></li>
+     <a href="{{ route('admin.students') }}" style="text-decoration: none;">
+       <li>
+      <i class="fas fa-underline icon"></i>Gérer les étudiants
+    </li>
+      </a>
+      <a href="{{ route('admin.recruteurs') }}" style="text-decoration: none;">
+        <li>
+          <i class="fas fa-boxes icon">
+            </i>Gérer les recruteurs
+          </li>
+        </a>
 
         <li><i class="fas fa-table icon"></i> Tables</li>
         <li><i class="fab fa-wpforms icon"></i> Forms

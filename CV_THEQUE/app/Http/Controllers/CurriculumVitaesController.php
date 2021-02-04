@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Curriculum_Vitae;
 use Illuminate\Http\Request;
-
+use App\Http\Resources\Curriculum_VitaeResource as cvResource;
 class CurriculumVitaesController extends Controller
 {
     /**
@@ -100,5 +100,41 @@ class CurriculumVitaesController extends Controller
         $curriculum_Vitae = Curriculum_Vitae::find($id);
         $curriculum_Vitae->delete();
         return redirect()->route('curriculum_Vitae.index')->with('success', 'Données supprimées');
+    }
+     /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+       $cvs = Curriculum_Vitae::with('experiences','experimentals','formations','loisirs','competences')->
+       orWhereHas('experiences', function (Builder $query) {
+        $query
+        ->orWhere('Societe', 'like', '%' .  $request->experience . '%')
+        ->orWhere('Mission', 'like', '%' .  $request->experience . '%');
+    })
+    ->orWhereHas('experimentals', function (Builder $query) {
+        $query
+        ->where('Societe', 'like', '%' .  $request->experimental . '%');
+    })
+    ->orWhereHas('formations', function (Builder $query) {
+        $query
+        ->where('Formation', 'like', '%' .  $request->formation . '%');
+    })
+    ->orWhereHas('loisirs', function (Builder $query) {
+        $query
+        ->where('centre_d_interet', 'like', '%' .  $request->loisir . '%');
+    })
+    ->orWhereHas('competences', function (Builder $query) {
+        $query
+        ->orWhere('logiciel', 'like', '%' .  $request->competence . '%')
+        ->orWhere('ProjetRealiser', 'like', '%' .  $request->competence . '%')
+        ->orWhere('langues', 'like', '%' .  $request->competence . '%');
+    })
+    ->get();
+    
+    return cvResource::collection($cvs);
     }
 }
