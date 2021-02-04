@@ -1,21 +1,12 @@
 <?php return array (
   'root' => 
   array (
-<<<<<<< HEAD
     'pretty_version' => 'dev-master',
     'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => '17597c04f398d66b939e71233c13dc41a1ad15ce',
-=======
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
-    'aliases' => 
-    array (
-    ),
-    'reference' => NULL,
->>>>>>> 73df916f6294c865ce6c15bfd4191863ee078a0b
+    'reference' => '2119565fe55a66251c2556d916d6ec2c99c7646d',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -431,6 +422,15 @@
         0 => 'v8.20.1',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => '2.5.1',
+      'version' => '2.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'abbf18d5ab8367f96b3205ca3c89fb2fa598c69e',
+    ),
     'kodova/hamcrest-php' => 
     array (
       'replaced' => 
@@ -449,21 +449,12 @@
     ),
     'laravel/laravel' => 
     array (
-<<<<<<< HEAD
       'pretty_version' => 'dev-master',
       'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '17597c04f398d66b939e71233c13dc41a1ad15ce',
-=======
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => NULL,
->>>>>>> 73df916f6294c865ce6c15bfd4191863ee078a0b
+      'reference' => '2119565fe55a66251c2556d916d6ec2c99c7646d',
     ),
     'laravel/sail' => 
     array (
@@ -602,6 +593,15 @@
       ),
       'reference' => '943b5d70cc5ae7483f6aff6ff43d7e34592ca0f5',
     ),
+    'pclzip/pclzip' => 
+    array (
+      'pretty_version' => '2.8.2',
+      'version' => '2.8.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '19dd1de9d3f5fc4d7d70175b4c344dee329f45fd',
+    ),
     'phar-io/manifest' => 
     array (
       'pretty_version' => '2.0.1',
@@ -646,6 +646,24 @@
       array (
       ),
       'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
+    ),
+    'phpoffice/common' => 
+    array (
+      'pretty_version' => '0.2.9',
+      'version' => '0.2.9.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'edb5d32b1e3400a35a5c91e2539ed6f6ce925e4d',
+    ),
+    'phpoffice/phpword' => 
+    array (
+      'pretty_version' => '0.17.0',
+      'version' => '0.17.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b8346af548d399acd9e30fc76ab0c55c2fec03a5',
     ),
     'phpoption/phpoption' => 
     array (
@@ -796,13 +814,8 @@
     array (
       'provided' => 
       array (
-<<<<<<< HEAD
-        0 => '1.0',
-        1 => '1.0.0',
-=======
         0 => '1.0.0',
         1 => '1.0',
->>>>>>> 73df916f6294c865ce6c15bfd4191863ee078a0b
       ),
     ),
     'psr/simple-cache' => 
@@ -1320,6 +1333,15 @@
       array (
       ),
       'reference' => 'bafc69caeb4d49c39fd0779086c03a3738cbb389',
+    ),
+    'zendframework/zend-escaper' => 
+    array (
+      'pretty_version' => '2.6.1',
+      'version' => '2.6.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3801caa21b0ca6aca57fa1c42b08d35c395ebd5f',
     ),
   ),
 );
