@@ -109,32 +109,84 @@ class CurriculumVitaesController extends Controller
      */
     public function search(Request $request)
     {
-       $cvs = Curriculum_Vitae::with('experiences','experimentals','formations','loisirs','competences')->
-       orWhereHas('experiences', function (Builder $query) {
-        $query
-        ->orWhere('Societe', 'like', '%' .  $request->experience . '%')
-        ->orWhere('Mission', 'like', '%' .  $request->experience . '%');
-    })
-    ->orWhereHas('experimentals', function (Builder $query) {
-        $query
-        ->where('Societe', 'like', '%' .  $request->experimental . '%');
-    })
-    ->orWhereHas('formations', function (Builder $query) {
-        $query
-        ->where('Formation', 'like', '%' .  $request->formation . '%');
-    })
-    ->orWhereHas('loisirs', function (Builder $query) {
-        $query
-        ->where('centre_d_interet', 'like', '%' .  $request->loisir . '%');
-    })
-    ->orWhereHas('competences', function (Builder $query) {
-        $query
-        ->orWhere('logiciel', 'like', '%' .  $request->competence . '%')
+        $cvs= new \Illuminate\Database\Eloquent\Collection;
+        if( $request->experience ){
+            $cvs1 = Curriculum_Vitae::with('experiences')->
+            whereHas('experiences', function ($query) use ( $request) {
+                $query
+                ->where('Societe', 'like', '%' .  $request->experience . '%');
+            })->get();
+            $cvs= new \Illuminate\Database\Eloquent\Collection;
+        $cvs = $cvs->merge($cvs1);
+   
+        }
+        if( $request->experimental ){
+            $cvs2 = Curriculum_Vitae::with('experimentals')->
+            whereHas('experimentals', function ($query) use ( $request) {
+                $query
+                ->where('Societe', 'like', '%' .  $request->experience . '%');
+            })->get();
+            $cvs = $cvs->merge($cvs2);
+
+        }
+        if( $request->formation ){
+            $cvs3 = Curriculum_Vitae::with('formations')->
+            whereHas('formations', function ($query) use ( $request) {
+                $query
+                ->where('Formation', 'like', '%' .  $request->formation . '%');
+            })->get();
+            $cvs = $cvs->merge($cvs3);
+
+        }
+        if( $request->loisir ){
+            $cvs4 = Curriculum_Vitae::with('loisirs')->
+            whereHas('loisirs', function ($query) use ( $request) {
+                $query
+                ->where('centre_d_interet', 'like', '%' .  $request->loisir . '%');
+            })->get();
+            $cvs = $cvs->merge($cvs4);
+
+        }
+        if( $request->competences ){
+            $cvs5 = Curriculum_Vitae::with('competences')->
+            whereHas('competences', function ($query) use ( $request) {
+                $query
+                ->orWhere('logiciel', 'like', '%' .  $request->competence . '%')
         ->orWhere('ProjetRealiser', 'like', '%' .  $request->competence . '%')
         ->orWhere('langues', 'like', '%' .  $request->competence . '%');
-    })
-    ->get();
-    
-    return cvResource::collection($cvs);
+            })->get();
+            $cvs = $cvs->merge($cvs5);
+
+        }
+        
+        // $cvs = $cvs->uninque();
+        return view('recruteur.cvs')->with('cvs',$cvs);
+    //    $cvs = Curriculum_Vitae::with('experiences','experimentals','formations','loisirs','competences')->
+    //    whereHas('experiences', function ($query) use ( $request) {
+    //     $query
+    //     ->orWhere('Societe', 'like', '%' .  $request->experience . '%')
+    //     ->orWhere('Mission', 'like', '%' .  $request->experience . '%');
+    // })
+    // ->whereHas('experimentals', function($query) use ( $request) {
+    //     $query
+    //     ->where('Societe', 'like', '%' .  $request->experimental . '%');
+    // })
+    // ->whereHas('formations', function($query) use ( $request) {
+    //     $query
+    //     ->where('Formation', 'like', '%' .  $request->formation . '%');
+    // })
+    // ->whereHas('loisirs', function ($query) use ( $request)  {
+    //     $query
+    //     ->where('centre_d_interet', 'like', '%' .  $request->loisir . '%');
+    // })
+    // ->whereHas('competences', function ($query) use ( $request)  {
+    //     $query
+    //     ->orWhere('logiciel', 'like', '%' .  $request->competence . '%')
+    //     ->orWhere('ProjetRealiser', 'like', '%' .  $request->competence . '%')
+    //     ->orWhere('langues', 'like', '%' .  $request->competence . '%');
+    // })
+    // ->get();
+    // return view('recruteur.cvs')->with('cvs',$cvs);
+    // return cvResource::collection($cvs);
     }
 }
