@@ -49,12 +49,9 @@ Route::delete('admin/recruteurs/delete/{id}', [App\Http\Controllers\AdminControl
 Route::get('student/home', [App\Http\Controllers\HomeController::class, 'StudentHome'])->name('student.home')->middleware('is_student');
 Route::post('change-password', [App\Http\Controllers\ChangePasswordController::class,'store'])->name('change.password');
 Route::get('change-cv', [App\Http\Controllers\ExperienceProfessionnelleController::class,'index'])->name('cv');
-<<<<<<< HEAD
 
 
 
 Route::get('search-cv', [App\Http\Controllers\CurriculumVitaesController::class,'search'])->name('cvSearch');
 
 
-=======
->>>>>>> origin/master
