@@ -20,6 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//cv
+Route::get('/ident', [App\Http\Controllers\IdentController::class, 'ident'])->name('ident');
+Route::put('/putident', [App\Http\Controllers\IdentController::class, 'putident'])->name('putident');
+Route::get('/getuserimage/{id}',[App\Http\Controllers\IdentController::class, 'getuserimage'])->name('getuserimage');
+Route::get('/export', [App\Http\Controllers\ExportController::class, 'export'])->name('export');
+Route::get('/exporter/{id}',[App\Http\Controllers\ExportController::class, 'exporter'])->name('exporter');
+Route::get('/getcv/{id}',[App\Http\Controllers\ExportController::class, 'getcv'])->name('getcv');
+
 
 Route::get('admin/home', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 // Students
@@ -41,9 +49,12 @@ Route::delete('admin/recruteurs/delete/{id}', [App\Http\Controllers\AdminControl
 Route::get('student/home', [App\Http\Controllers\HomeController::class, 'StudentHome'])->name('student.home')->middleware('is_student');
 Route::post('change-password', [App\Http\Controllers\ChangePasswordController::class,'store'])->name('change.password');
 Route::get('change-cv', [App\Http\Controllers\ExperienceProfessionnelleController::class,'index'])->name('cv');
+<<<<<<< HEAD
 
 
 
 Route::get('search-cv', [App\Http\Controllers\CurriculumVitaesController::class,'search'])->name('cvSearch');
 
 
+=======
+>>>>>>> origin/master
