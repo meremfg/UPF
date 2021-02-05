@@ -6,11 +6,7 @@
     'aliases' => 
     array (
     ),
-<<<<<<< HEAD
-    'reference' => '73df916f6294c865ce6c15bfd4191863ee078a0b',
-=======
-    'reference' => '2119565fe55a66251c2556d916d6ec2c99c7646d',
->>>>>>> origin/master
+    'reference' => '4a28146438746f33e7b2c7241e01f006466f676a',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -458,11 +454,7 @@
       'aliases' => 
       array (
       ),
-<<<<<<< HEAD
-      'reference' => '73df916f6294c865ce6c15bfd4191863ee078a0b',
-=======
-      'reference' => '2119565fe55a66251c2556d916d6ec2c99c7646d',
->>>>>>> origin/master
+      'reference' => '4a28146438746f33e7b2c7241e01f006466f676a',
     ),
     'laravel/sail' => 
     array (
@@ -822,8 +814,8 @@
     array (
       'provided' => 
       array (
-        0 => '1.0.0',
-        1 => '1.0',
+        0 => '1.0',
+        1 => '1.0.0',
       ),
     ),
     'psr/simple-cache' => 

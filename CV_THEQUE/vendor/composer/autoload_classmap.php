@@ -39,10 +39,8 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Http\\Middleware\\isStudent' => $baseDir . '/app/Http/Middleware/isStudent.php',
-<<<<<<< HEAD
-=======
+    'App\\Http\\Resources\\Curriculum_VitaeResource' => $baseDir . '/app/Http/Resources/Curriculum_VitaeResource.php',
     'App\\Mail\\SendMail' => $baseDir . '/app/Mail/SendMail.php',
->>>>>>> origin/master
     'App\\Models\\Administrateur' => $baseDir . '/app/Models/Administrateur.php',
     'App\\Models\\CV_Collection' => $baseDir . '/app/Models/CV_Collection.php',
     'App\\Models\\CV_Relation_Collection' => $baseDir . '/app/Models/CV_Relation_Collection.php',

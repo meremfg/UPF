@@ -22,9 +22,10 @@ class IdentController extends Controller
             $image_file=$request->user_image;
             $image = Image::make($image_file);
             Response::make($image->encode('jpeg'));
-            $image->save('storage/user_image/'.$identif->id.'.jpeg');
+            $image->save('storage/user_image/test.jpeg');
             $identif->image=$image;
         }
+        $identif->image="test";
         $identif->nom=$request->nom;
         $identif->prenom=$request->prenom;
         $identif->adresse=$request->adresse;
