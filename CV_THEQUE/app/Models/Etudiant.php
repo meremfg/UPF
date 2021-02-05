@@ -22,4 +22,8 @@ class Etudiant extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function cvs()
+    {
+        return $this->hasMany('App\Models\Curriculum_Vitae','etudiant_cin','cin');
+    }
 }

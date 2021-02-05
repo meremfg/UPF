@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Curriculum_Vitae;
 use App\Models\Formation;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,9 @@ class FormationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function contenu()
     {
-        return view('formation.create');
+        return view('contenu');
     }
 
     /**
@@ -35,24 +36,22 @@ class FormationController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'DateDebutDeFormation'    =>  'required',
-            'DateFinFormation'             =>  'required',
-            'Formation'             =>  'required',
-            'LieuFormation'             =>  'required',
-            'cv_id'             =>  'required',
+        $data=$request->all();
+        $lastid=Curriculum_Vitae::create($data)->id;
+        if(count($request->DateDebutDeFormation) > 0) {
+            foreach($request->DateDebutDeFormation as $item=>$v){
+                $data2=array(
 
-        ]);
-        $formation= new Formation([
-            'DateDebutDeFormation'    =>  $request->get('DateDebutDeFormation'),
-            'DateFinFormation'    =>  $request->get('DateFinFormation'),
-            'Formation'    =>  $request->get('Formation'),
-            'LieuFormation'    =>  $request->get('LieuFormation'),
-            'cv_id'    =>  $request->get('cv_id'),
-
-        ]);
-        $formation->save();
-        return redirect()->route('formation.index')->with('success', 'Données ajoutées');
+                    'DateDebutDeFormation'  =>  $request->DateDebutDeFormation[$item],
+                    'DateFinFormation'    =>  $request->DateFinFormation[$item],
+                    'Formation'    =>  $request->Formation[$item],
+                    'LieuFormation'    =>  $request->LieuFormation[$item],
+                    'cv_id'   =>$lastid,
+                );
+                Formation::insert($data2);
+            }
+        }
+        return redirect()->back()->with('success','data insert successfully');
     }
 
     /**

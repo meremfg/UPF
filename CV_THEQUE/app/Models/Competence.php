@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Competence extends Model
 {
     use HasFactory;
-    use HasFactory;
     protected $fillable = [
 
         'logiciel',
@@ -18,4 +17,8 @@ class Competence extends Model
 
 
     ];
+    public function cv()
+    {
+        return $this->belongsTo('App\Models\Curriculum_Vitae','cv_id','id');
+    }
 }

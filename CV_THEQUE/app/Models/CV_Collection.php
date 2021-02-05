@@ -9,11 +9,8 @@ class CV_Collection extends Model
 {
     use HasFactory;
     protected $fillable = [
-
         'lien',
         'titre',
-
-
-
     ];
+    
 }

@@ -13,4 +13,8 @@ class Loisir extends Model
         'cv_id',
 
     ];
+    public function cv()
+    {
+        return $this->belongsTo('App\Models\Curriculum_Vitae','cv_id','id');
+    }
 }
