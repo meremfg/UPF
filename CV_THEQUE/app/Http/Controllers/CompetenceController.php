@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Competence;
+use App\Models\Curriculum_Vitae;
 use Illuminate\Http\Request;
 
 class CompetenceController extends Controller
@@ -35,6 +36,8 @@ class CompetenceController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
+        $lastid=Curriculum_Vitae::create($data)->id;
         $this->validate($request, [
             'logiciel'    =>  'required',
             'ProjetRealiser'    =>  'required',
@@ -42,11 +45,11 @@ class CompetenceController extends Controller
             'cv_id'             =>  'required',
 
         ]);
-        $competence= new Loisir([
+        $competence= new Competence([
             'logiciel'    =>  $request->get('logiciel'),
             'ProjetRealiser'    =>  $request->get('ProjetRealiser'),
             'langues'    =>  $request->get('langues'),
-            'cv_id'    =>  $request->get('cv_id'),
+            'cv_id'    =>  $request->get($lastid),
 
         ]);
         $competence->save();

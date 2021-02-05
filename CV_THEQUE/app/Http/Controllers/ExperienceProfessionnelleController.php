@@ -22,9 +22,9 @@ class ExperienceProfessionnelleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function contenu()
     {
-        return view('experience_Professionnelle.create');
+        return view('contenu');
     }
 
     /**
@@ -35,26 +35,25 @@ class ExperienceProfessionnelleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'DateDebut'    =>  'required',
-            'DateFin'             =>  'required',
-            'Societe'             =>  'required',
-            'Mission'             =>  'required',
-            'Duree'             =>  'required',
-            'cv_id'             =>  'required',
+        $data=$request->all();
+        $lastid=Curriculum_Vitae::create($data)->id;
+        if(count($request->DateDebut) > 0) {
+            foreach($request->DateDebut as $item=>$v){
+                $data2=array(
 
-        ]);
-        $experience_professionnelle= new Experience_Professionnelle([
-            'DateDebut'    =>  $request->get('DateDebut'),
-            'DateFin'    =>  $request->get('DateFin'),
-            'Societe'    =>  $request->get('Societe'),
-            'Mission'    =>  $request->get('Mission'),
-            'Duree'    =>  $request->get('Duree'),
-            'cv_id'    =>  $request->get('cv_id'),
+                    'DateDebut'  =>  $request->DateDebut[$item],
+                    'DateFin'    =>  $request->DateFin[$item],
+                    'Societe'    =>  $request->Societe[$item],
+                    'Mission'    =>  $request->Mission[$item],
+                    'Duree'    =>  $request->Duree[$item],
+                    'cv_id'   =>$lastid,
+                );
+                Experience_Professionnelle::insert($data2);
+            }
+        }
+        return redirect()->back()->with('success','data insert successfully');
 
-        ]);
-        $experience_professionnelle->save();
-        return redirect()->route('experience_Professionnelle.index')->with('success', 'Données ajoutées');
+
     }
 
     /**

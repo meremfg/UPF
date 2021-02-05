@@ -20,8 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//formation
+Route::get('/contenu', [App\Http\Controllers\FormationController::class, 'contenu'])->name('contenu');
+Route::post('/contenus','App\Http\Controllers\FormationController@store');
+//experience proffesionnelle
+Route::get('/contenu', [App\Http\Controllers\ExperienceProfessionnelleController::class, 'contenu'])->name('contenu');
+Route::post('/contenu','App\Http\Controllers\ExperienceProfessionnelleController@store');
 //cv
 Route::get('/ident', [App\Http\Controllers\IdentController::class, 'ident'])->name('ident');
+
 Route::put('/putident', [App\Http\Controllers\IdentController::class, 'putident'])->name('putident');
 Route::get('/getuserimage/{id}',[App\Http\Controllers\IdentController::class, 'getuserimage'])->name('getuserimage');
 Route::get('/export', [App\Http\Controllers\ExportController::class, 'export'])->name('export');

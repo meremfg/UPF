@@ -10,6 +10,10 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/cv.js') }}" defer></script>
     <script src="{{ asset('js/step_3.js') }}" defer></script>
+    <script src="https://use.fontawesome.com/9afbc0e20c.js"></script>
+    <script src="https://cdn.tiny.cloud/1/buwc8hbcb0jbkip07hypltu2lytvdajn823i0yw3r0v71u6w/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
