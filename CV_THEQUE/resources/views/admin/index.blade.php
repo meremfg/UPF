@@ -19,7 +19,7 @@
     </div>
     <div class="body">
       <ul>
-
+          
         <li><i class="fas fa-home icon"></i> Recherche</li>
      <li><i class="fas fa-underline icon"><a href="{{ route('admin.students') }}"></i>Gérer les étudiants</a></li>
         <li><i class="fas fa-boxes icon"><a href="{{ route('admin.recruteurs') }}"></i>Gérer les recruteurs</a></li>
