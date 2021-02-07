@@ -19,7 +19,7 @@
                             <i class="overlay"></i>
                         </li>
                         <li class="mdl">
-                            <a id="step_2_link" class="steplink" data-next-step="2" href="/contenu" title="Contenu">
+                            <a id="step_2_link" class="steplink" data-next-step="2" data-href="/contenu" href="/contenu" title="Contenu">
                                 <i class="rnd-20">
                                     <span><i class="fa fa-check"></i></span>
                                 </i>

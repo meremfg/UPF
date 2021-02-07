@@ -22,7 +22,7 @@
 @endif
 
 
-<table class="table table-bordered">
+<table class="table table-bordered" style="margin-top:20px;">
  <tr>
    <th>No</th>
    <th>Nom</th>

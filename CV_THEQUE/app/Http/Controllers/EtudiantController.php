@@ -128,4 +128,28 @@ class EtudiantController extends Controller
         $etudiant->delete();
         return redirect()->route('etudiant.index')->with('success', 'Data Deleted');
     }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        
+        $etudiants = Etudiant::orWhere('cin','like','%',$request->cin.'%') 
+        ->orWhere('cne','like','%',$request->cne.'%') 
+        ->orWhere('nom','like','%',$request->nom.'%') 
+        ->orWhere('prenom','like','%',$request->prenom.'%') 
+        ->orWhere('dateDeNaissance','like','%',$request->dateDeNaissance.'%') 
+        ->orWhere('sexe','like','%',$request->sexe.'%') ;
+        return  $etudiants;
+
+
+
+
+
+
+    }
 }

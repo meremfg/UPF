@@ -16,4 +16,8 @@ class Experimental extends Model
 
 
     ];
+    public function cv()
+    {
+        return $this->belongsTo('App\Models\Curriculum_Vitae','cv_id','id');
+    }
 }

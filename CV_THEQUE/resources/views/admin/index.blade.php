@@ -19,7 +19,7 @@
     </div>
     <div class="body">
       <ul>
-
+          
         <li><i class="fas fa-home icon"></i> Recherche</li>
      <a href="{{ route('admin.students') }}" style="text-decoration: none;">
        <li>
